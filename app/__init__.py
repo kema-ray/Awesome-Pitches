@@ -6,5 +6,13 @@ def create_app(config_name):
     # initializing the application
     app = Flask(__name__)
 
-    # setting up configurations
+    # creating the app configurations
     app.config.from_object(config_options[config_name])
+
+    # Registering the blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
+
+    return app
+

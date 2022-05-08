@@ -1,5 +1,5 @@
 
-from distutils.command.config import config
+# from distutils.command.config import config
 
 
 class Config:
