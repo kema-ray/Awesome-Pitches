@@ -1,6 +1,9 @@
+{% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 <title>{{ title }}</title>
-<h1>Pitches</h1>
+{%block content%}
+<!-- <h1>Hello</h1> -->
+<div class="col-md-2"></div>
 <div class="col-md-4" style="text-align: center;">
     <div class="well well-lg">
         <h3>Business Pitches</h3>
@@ -10,4 +13,29 @@
         <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
     </div>
 </div>
+<div class="col-md-4" style="text-align: center;">
+    <div class="well well-lg">
+        <h3>Entertainment Pitches</h3>
+        <hr>
+        <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
+            they're facing. </p>
+        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
+    </div>
+<div class="col-md-2"></div>
+
+</div>
+<div class="col-md-4"></div>
+<div class="col-md-4" style="text-align: center;">
+    <div class="well well-lg">
+        <h3>Puns Pitches</h3>
+        <hr>
+        <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
+            they're facing. </p>
+        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
+    </div>
+<div class="col-md-4"></div>
+
+</div>
+
+{%endblock%}
 
