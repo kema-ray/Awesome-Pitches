@@ -1,0 +1,7 @@
+{% import 'macros.html' as macro%}
+{% block content %}
+    <h1>Business pitches</h1>
+    <div class="row">
+        {{macro.displayPitches(pitches)}}
+    </div>
+{%endblock%}
