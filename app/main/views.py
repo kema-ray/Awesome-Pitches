@@ -1,6 +1,8 @@
-from flask import render_template
+from unicodedata import category
+from flask import redirect, render_template,url_for
 from . import main
 from ..models import Pitch
+from .forms import PitchForm
 
 @main.route('/')
 def index():
@@ -21,4 +23,27 @@ def business_pitches():
     pitches = Pitch.get_pitches('business')
 
     return render_template("business_pitches.html", pitches = pitches)
+
+@main.route('/pitches/entertainment_pitches')
+def entertainment_pitches():
+
+    pitches = Pitch.get_pitches('entertainment')
+
+    return render_template("entertainment_pitches.html", pitches = pitches)
+
+@main.route('/pitch/new',methods=["GET","POST"])
+def new_pitch():
+     pitch_form = PitchForm()
+     if pitch_form.validate_on_submit():
+         title=pitch_form.title.data
+         text=pitch_form.text.data
+         category=pitch_form.category.data
+
+         new_pitch=Pitch(title=title,text=text,category=category)
+         new_pitch.save_pitch()
+         return redirect(url_for('.index'))
+
+     return render_template('new_pitch.html',pitch_form=pitch_form)
+
+    
 

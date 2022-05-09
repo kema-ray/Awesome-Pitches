@@ -31,7 +31,7 @@
         <button><a href=""><i class="fa fa-thumbs-up" style="font-size:15px;color: grey"></i></a></button>
         <button><a href=""><i class="fa fa-thumbs-down" style="font-size:15px;color: grey"></i></a></button>
         <br>
-        <a href="{{url_for('main.business_pitches')}}" style="margin-top: 2%;" class="btn btn-info -center">Click to view</a>
+        <a href="{{url_for('main.entertainment_pitches')}}" style="margin-top: 2%;" class="btn btn-info -center">Click to view</a>
     </div>
 <div class="col-md-2"></div>
 
@@ -41,16 +41,19 @@
     <div class="well well-lg">
         <h3>Puns Pitches</h3>
         <hr>
-        <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
-            they're facing. </p>
+        <p>·Time flies like an arrow. Fruit flies like a banana. <br> ·What did the grape say when it got crushed? Nothing, it just let out a little wine.</p>
         <button><a href=""><i class="fa fa-thumbs-up" style="font-size:15px;color: grey"></i></a></button>
         <button><a href=""><i class="fa fa-thumbs-down" style="font-size:15px;color: grey"></i></a></button>
         <br>
         <a href="{{url_for('main.business_pitches')}}" style="margin-top: 2%;" class="btn btn-info -center">Click to view</a>
     </div>
 <div class="col-md-4"></div>
+<div style="padding-bottom: 15px; text-align: center;">
+    <a href="{{url_for('main.new_pitch')}}" class="btn btn-info btn-center">Click to create a pitch</a>
+</div>
 
 </div>
+
 
 {%endblock%}
 

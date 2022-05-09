@@ -1,9 +1,12 @@
 import os
+
+# from instance.config import SECRET_KEY
 # from distutils.command.config import confSQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://username:password@localhost/watchlist'
 class Config:
     '''
     General configuration parent class
     '''
+    SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:hotspurs@localhost/pitches'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
