@@ -3,6 +3,7 @@ from flask import redirect, render_template,url_for
 from . import main
 from ..models import Pitch
 from .forms import PitchForm
+from flask_login import login_required
 
 @main.route('/')
 def index():
@@ -32,6 +33,7 @@ def entertainment_pitches():
     return render_template("entertainment_pitches.html", pitches = pitches)
 
 @main.route('/pitch/new',methods=["GET","POST"])
+@login_required
 def new_pitch():
      pitch_form = PitchForm()
      if pitch_form.validate_on_submit():
