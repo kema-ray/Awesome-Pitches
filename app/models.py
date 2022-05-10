@@ -11,7 +11,7 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
     email =  db.Column(db.String(255),unique=True,index=True)
-    password_hash = db.Column(db.String(255))
+    password_secure = db.Column(db.String(255))
     pitches = db.relationship('Pitch',backref='user',lazy='dynamic')
 
     @property
@@ -20,17 +20,14 @@ class User(UserMixin,db.Model):
 
     @password.setter
     def password(self, password):
-        self.pass_secure = generate_password_hash(password)
-
+        self.password_secure = generate_password_hash(password)
 
     def verify_password(self,password):
-        return check_password_hash(self.pass_secure,password)
-
+        return check_password_hash(self.password_secure,password)
 
     def __repr__(self):
         return f'User {self.username}'
 
-    
 class Pitch(db.Model):
     __tablename__ = 'pitches'
 
@@ -54,3 +51,5 @@ class Pitch(db.Model):
         pitch = Pitch.query.filter_by(id=id).first()
 
         return pitch
+
+
