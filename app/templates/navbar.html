@@ -11,7 +11,10 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/"><strong>All-Pitches</strong></a></li>
+                <li><a href="/"><strong>Home</strong></a></li>
+                <li><a href="{{url_for('main.business_pitches')}}">Business</a></li>
+                <li><a href="{{url_for('main.entertainment_pitches')}}">Entertainment</a></li>
+                <li><a href="{{url_for('main.puns_pitches')}}">Puns</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}

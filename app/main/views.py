@@ -32,6 +32,13 @@ def entertainment_pitches():
 
     return render_template("entertainment_pitches.html", pitches = pitches)
 
+@main.route('/pitches/puns_pitches')
+def puns_pitches():
+
+    pitches = Pitch.get_pitches('puns')
+
+    return render_template("puns_pitches.html", pitches = pitches)
+
 @main.route('/pitch/new',methods=["GET","POST"])
 @login_required
 def new_pitch():
