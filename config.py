@@ -28,6 +28,9 @@ class ProdConfig(Config):
     '''
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
+class TestConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:hotspurs@localhost/pitches'
+
 
 class DevConfig(Config):
     '''
@@ -42,5 +45,6 @@ class DevConfig(Config):
 
 config_options={
     'development':DevConfig,
-    'production':ProdConfig
+    'production':ProdConfig,
+    'test':TestConfig
 }

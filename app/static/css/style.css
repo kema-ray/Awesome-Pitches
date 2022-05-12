@@ -5,12 +5,13 @@
 }
 body{
     /* background: linear-gradient(#d558c9, #57d6a7); */
-    background-image: url(https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmFja2dyb3VuZCUyMGNvbG9yc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60);
+    background-color: #64748b;
+    /* background-image: url(https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmFja2dyb3VuZCUyMGNvbG9yc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60); */
     background-repeat: no-repeat;
     background-size: cover;
 }
 .head{
-    color: white;
+    color: #60a5fa;
     font-family: 'Oleo Script Swash Caps', cursive;
     text-align: center;
     /* margin-top: 10px; */
