@@ -5,7 +5,7 @@
 <div class="container"> 
     <div class="row">
       <div class= "col-md-2"> </div>
-      <div class="col-md-8">
+      <div class="col-md-8"  style="color: white;">
       <!--Flash message -->
       {% for message in get_flashed_messages() %}
         <div class="alert alert-danger">
@@ -15,9 +15,9 @@
       {% endfor %}
       <!-- Login form -->
       {{wtf.quick_form(login_form)}}
-      <p> Don't have an account? <a href="{{url_for('auth.register')}}">Sign up here</a></p>
+      <p style="color: white;"> Don't have an account? <a href="{{url_for('auth.register')}}">Sign up here</a></p>
      </div>
-     <div clas="col-md-2"> </div>
+     <div class="col-md-2"> </div>
     </div>
 </div>
 

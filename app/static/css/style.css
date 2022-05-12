@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Macondo&family=Oleo+Script+Swash+Caps&display=swap');
 .new{
     font-family: 'Oleo Script Swash Caps', cursive;
+    text-align: center;
 }
 body{
     /* background: linear-gradient(#d558c9, #57d6a7); */
@@ -8,8 +9,16 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
-card1,
-card2,
-card3 {
-  background-color: #334155;  
+.head{
+    color: white;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    text-align: center;
+    /* margin-top: 10px; */
+}
+#card1,
+#card2,
+#card3,
+#card4 {
+  background-color: #334155;
+  font-family: 'Macondo', cursive;  
 }
