@@ -4,7 +4,7 @@
 {% block styles%}
     {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
     integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 {% endblock %}
 {%block content%}
@@ -16,8 +16,6 @@
         <hr>
         <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
             they're facing. </p>
-        <!-- <button><a href=""><i class="fa fa-thumbs-up" style="font-size:15px;color: grey"></i></a></button>
-        <button><a href=""><i class="fa fa-thumbs-down" style="font-size:15px;color: grey"></i></a></button> -->
         <br>
         <a href="{{url_for('main.business_pitches')}}" style="margin-top: 2%;" class="btn btn-info -center">Click to view</a>
     </div>
@@ -28,8 +26,6 @@
         <hr>
         <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
             they're facing. </p>
-        <!-- <button><a href=""><i class="fa fa-thumbs-up" style="font-size:15px;color: grey"></i></a></button>
-        <button><a href=""><i class="fa fa-thumbs-down" style="font-size:15px;color: grey"></i></a></button> -->
         <br>
         <a href="{{url_for('main.entertainment_pitches')}}" style="margin-top: 2%;" class="btn btn-info -center">Click to view</a>
         <br>
@@ -44,8 +40,6 @@
         <h3>Puns Pitches</h3>
         <hr>
         <p>·Time flies like an arrow. Fruit flies like a banana. <br> ·What did the grape say when it got crushed? Nothing, it just let out a little wine.</p>
-        <!-- <button><a href=""><i class="fa fa-thumbs-up" style="font-size:15px;color: grey"></i></a></button>
-        <button><a href=""><i class="fa fa-thumbs-down" style="font-size:15px;color: grey"></i></a></button> -->
         <br>
         <a href="{{url_for('main.puns_pitches')}}" style="margin-top: 2%;" class="btn btn-info -center">Click to view</a>
     </div>

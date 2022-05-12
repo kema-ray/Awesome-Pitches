@@ -46,24 +46,26 @@ def new_pitch():
      pitch_form = PitchForm()
      if pitch_form.validate_on_submit():
          title=pitch_form.title.data
-         post=pitch_form.post.data
+         pitch=pitch_form.text.data
          category=pitch_form.category.data
 
-         new_pitch=Pitch(pitch_title=title,post=post,category=category)
+         new_pitch=Pitch(pitch_title=title,pitch_content=pitch,user=current_user,category=category)
          new_pitch.save_pitch()
          return redirect(url_for('.index'))
 
-     return render_template('new_pitch.html',pitch_form=pitch_form)
+     title = 'New Pitch'
+     return render_template('new_pitch.html',pitch_form=pitch_form,title=title)
 
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
     # user_joined = user.date_joined.strftime('%b, %d, %Y')
-
+    pitches_count = Pitch.count_pitches(uname)
+    # user_joined = user.date_joined.strftime('%b %d, %Y')
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html", user = user)
+    return render_template("profile/profile.html", user = user,pitches = pitches_count)
 
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required

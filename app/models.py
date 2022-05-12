@@ -20,6 +20,7 @@ class User(UserMixin,db.Model):
     comment = db.relationship('Comment',backref='user',lazy='dynamic')
     upvote = db.relationship('Upvote',backref='user',lazy='dynamic')
     downvote = db.relationship('Downvote',backref='user',lazy='dynamic')
+    date_joined = db.Column(db.DateTime,default=datetime.utcnow)
     # date_joined = db.Column(db.DateTime,default=datetime.utcnow)
 
 
@@ -44,7 +45,7 @@ class Pitch(db.Model):
     pitch_title = db.Column(db.String)
     pitch_content = db.Column(db.String(1000))
     category = db.Column(db.String)
-    post = db.Column(db.Text(),nullable=False)
+    pitch_content = db.Column(db.String(1000))
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     # posted = db.Column(db.DateTime,default=datetime.utcnow)
     # time = db.Column(db.DateTime, default = datetime.utcnow)
@@ -66,6 +67,17 @@ class Pitch(db.Model):
         pitch = Pitch.query.filter_by(id=id).first()
 
         return pitch
+
+    @classmethod
+    def count_pitches(cls,uname):
+        user = User.query.filter_by(username=uname).first()
+        pitches = Pitch.query.filter_by(user_id=user.id).all()
+
+        pitches_count = 0
+        for pitch in pitches:
+            pitches_count += 1
+
+        return pitches_count
 
     # def __repr__(self):
     #     return f'Pitch {self.post}'
