@@ -5,7 +5,7 @@ from wtforms.validators import InputRequired
 class PitchForm(FlaskForm):
 
     title = StringField('Pitch title',validators=[InputRequired()])
-    content = TextAreaField('Content',validators=[InputRequired()])
+    post = TextAreaField('Post',validators=[InputRequired()])
     category = SelectField('Type',choices=[('business','Business pitch'),('entertainment','Entertainment pitch'),('puns','Puns pitch')],validators=[InputRequired()])
     submit = SubmitField('Submit')
 
@@ -14,5 +14,5 @@ class UpdateProfile(FlaskForm):
     submit = SubmitField('Submit')
 
 class CommentForm(FlaskForm):
-    text = TextAreaField('Leave a comment:',validators=[InputRequired()])
+    comment = TextAreaField('Leave a comment:',validators=[InputRequired()])
     submit = SubmitField('Submit')

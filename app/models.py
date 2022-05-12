@@ -44,9 +44,9 @@ class Pitch(db.Model):
     pitch_title = db.Column(db.String)
     pitch_content = db.Column(db.String(1000))
     category = db.Column(db.String)
-    # post = db.Column(db.Text(),nullable=False)
+    post = db.Column(db.Text(),nullable=False)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    # posted = db.Column(db.DateTime,default=datetime.utcnow)
     # time = db.Column(db.DateTime, default = datetime.utcnow)
     upvote = db.relationship('Upvote',backref='pitch',lazy='dynamic')
     downvote = db.relationship('Downvote',backref='pitch',lazy='dynamic')
@@ -79,11 +79,11 @@ class Upvote(db.Model):
 
     def save_upvote(self):
         db.session.add(self)
-        db.sesion.commit()
+        db.session.commit()
 
     @classmethod
     def get_upvotes(cls,id):
-        upvotes = Pitch.query.filter_by(pitch_id=id).all()
+        upvotes = cls.query.filter_by(pitch_id=id).all()
         return upvotes
 
     def __repr__(self):
@@ -98,11 +98,11 @@ class Downvote(db.Model):
 
     def save_downvote(self):
         db.session.add(self)
-        db.sesion.commit()
+        db.session.commit()
 
     @classmethod
     def get_downvotes(cls,id):
-        downvotes = Pitch.query.filter_by(pitch_id=id).all()
+        downvotes = cls.query.filter_by(pitch_id=id).all()
         return downvotes
 
     def __repr__(self):
@@ -123,11 +123,11 @@ class Comment(db.Model):
 
     @classmethod
     def get_comments(cls,pitch):
-        comments = Comment.query.filter_by(pitch_id=pitch).all()
+        comments = cls.query.filter_by(pitch_id=pitch).all()
         return comments
 
-    def __repr__(self):
-        return f'comment:{self.comment}'
+
+
 
 
 

@@ -1,6 +1,6 @@
 from flask import redirect, render_template,url_for,request,abort
 from . import main
-from ..models import Pitch,User,Comment
+from ..models import Pitch,User,Comment,Upvote,Downvote
 from .forms import PitchForm,UpdateProfile,CommentForm
 from flask_login import login_required,current_user
 from .. import db,photos
@@ -46,10 +46,10 @@ def new_pitch():
      pitch_form = PitchForm()
      if pitch_form.validate_on_submit():
          title=pitch_form.title.data
-         content=pitch_form.content.data
+         post=pitch_form.post.data
          category=pitch_form.category.data
 
-         new_pitch=Pitch(pitch_title=title,category=category)
+         new_pitch=Pitch(pitch_title=title,post=post,category=category)
          new_pitch.save_pitch()
          return redirect(url_for('.index'))
 
@@ -109,6 +109,38 @@ def comment(pitch_id):
         new_comment.save_comment()
         return redirect(url_for('.comment',pitch_id=pitch_id))
     return render_template('comment.html',form=form,pitch=pitch,all_comments=all_comments)
+
+@main.route('/like/<int:id>',methods = ['POST','GET'])
+@login_required
+def like(id):
+    get_pitches = Upvote.get_upvotes(id)
+    valid_string = f'{current_user.id}:{id}'
+    for pitch in get_pitches:
+        to_str = f'{pitch}'
+        print(valid_string+" "+to_str)
+        if valid_string == to_str:
+            return redirect(url_for('main.index',id=id))
+        else:
+            continue
+    new_vote = Upvote(user = current_user, pitch_id=id)
+    new_vote.save_upvote()
+    return redirect(url_for('main.index',id=id))
+
+@main.route('/dislike/<int:id>',methods = ['POST','GET'])
+@login_required
+def dislike(id):
+    pitch = Downvote.get_downvotes(id)
+    valid_string = f'{current_user.id}:{id}'
+    for p in pitch:
+        to_str = f'{p}'
+        print(valid_string+" "+to_str)
+        if valid_string == to_str:
+            return redirect(url_for('main.index',id=id))
+        else:
+            continue
+    new_downvote = Downvote(user = current_user, pitch_id=id)
+    new_downvote.save_downvote()
+    return redirect(url_for('main.index',id = id))
 
 
     
