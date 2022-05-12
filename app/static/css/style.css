@@ -2,3 +2,14 @@
 .new{
     font-family: 'Oleo Script Swash Caps', cursive;
 }
+body{
+    /* background: linear-gradient(#d558c9, #57d6a7); */
+    background-image: url(https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmFja2dyb3VuZCUyMGNvbG9yc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+card1,
+card2,
+card3 {
+  background-color: #334155;  
+}

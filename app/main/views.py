@@ -59,13 +59,15 @@ def new_pitch():
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
+    user_id = current_user._get_current_object().id
+    posts = Pitch.query.filter_by(user_id = user_id).all()
     # user_joined = user.date_joined.strftime('%b, %d, %Y')
     pitches_count = Pitch.count_pitches(uname)
     # user_joined = user.date_joined.strftime('%b %d, %Y')
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html", user = user,pitches = pitches_count)
+    return render_template("profile/profile.html", user = user,pitches = pitches_count,posts = posts)
 
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
