@@ -20,8 +20,8 @@ class User(UserMixin,db.Model):
     comment = db.relationship('Comment',backref='user',lazy='dynamic')
     upvote = db.relationship('Upvote',backref='user',lazy='dynamic')
     downvote = db.relationship('Downvote',backref='user',lazy='dynamic')
-    date_joined = db.Column(db.DateTime,default=datetime.utcnow)
     # date_joined = db.Column(db.DateTime,default=datetime.utcnow)
+    date_joined = db.Column(db.DateTime,default=datetime.utcnow)
 
 
     @property
@@ -135,6 +135,10 @@ class Comment(db.Model):
     def get_comments(cls,pitch):
         comments = cls.query.filter_by(pitch_id=pitch).all()
         return comments
+
+class Moringa(db.Model):
+    __tablename__='moringa'
+    id = db.Column(db.Integer,primary_key = True)
 
 
 
