@@ -61,9 +61,7 @@ def profile(uname):
     user = User.query.filter_by(username = uname).first()
     user_id = current_user._get_current_object().id
     posts = Pitch.query.filter_by(user_id = user_id).all()
-    # user_joined = user.date_joined.strftime('%b, %d, %Y')
     pitches_count = Pitch.count_pitches(uname)
-    # user_joined = user.date_joined.strftime('%b %d, %Y')
     if user is None:
         abort(404)
 
